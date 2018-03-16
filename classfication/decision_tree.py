@@ -26,7 +26,6 @@ def train_error(dataset):
 
 def entropy(dataset):
     '''
-        TODO:
         Calculate the entropy of the subdataset and return it.
         This function is used to calculate the entropy for a dataset with 2 classes.
         Mathematically, this function return:
@@ -47,7 +46,6 @@ def entropy(dataset):
 
 def gini_index(dataset):
     '''
-        TODO:
         Calculate the gini index of the subdataset and return it.
         For dataset with 2 classes:
         C(p) = 2*p*(1-p)
@@ -101,21 +99,21 @@ class DecisionTree:
     def predict(self, features):
         '''
         Helper function to predict the label given a row of features.
-        You do not need to modify this.
+        
         '''
         return self._predict_recurs(self.root, features)
 
     def accuracy(self, data):
         '''
         Helper function to calculate the accuracy on the given data.
-        You do not need to modify this.
+        
         '''
         return 1 - self.loss(data)
 
     def loss(self, data):
         '''
         Helper function to calculate the loss on the given data.
-        You do not need to modify this.
+   
         '''
 
         cnt = 0.0
@@ -131,7 +129,7 @@ class DecisionTree:
         '''
         Helper function to predict the label given a row of features.
         Traverse the tree until leaves to get the label.
-        You do not need to modify this.
+
         '''
 
         if node.isleaf or node.index_split_on == 0:
@@ -144,7 +142,6 @@ class DecisionTree:
 
     def _prune_recurs(self, node, validation_data):
         '''
-        TODO:
         Prune the tree bottom up recursively. Nothing needs to be returned.
         Do not prune if the node is a leaf.
         Do not prune if the node is non-leaf and has at least one non-leaf child.
@@ -183,7 +180,6 @@ class DecisionTree:
 
     def _is_terminal(self, node, data, indices):
         '''
-        TODO:
         Helper function to determine whether the node should stop splitting.
         Stop the recursion:
             1. The dataset is empty.
@@ -225,7 +221,6 @@ class DecisionTree:
 
     def _split_recurs(self, node, rows, indices):
         '''
-        TODO:
         Recursively split the node based on the rows and indices given.
         Nothing needs to be returned.
         First use _is_terminal() to check if the node needs to be splitted.
@@ -285,7 +280,6 @@ class DecisionTree:
 
     def _calc_gain(self, data, split_index, gain_function):
         '''
-        TODO:
         Calculate the gain of the proposed splitting and return it.
         Gain = C(P[y=1]) - (P[x_i=True] * C(P[y=1|x_i=True]) + P[x_i=False]C(P[y=1|x_i=False)])
         Here the C(p) is the gain_function. For example, if C(p) = min(p, 1-p), this would be
@@ -311,7 +305,6 @@ class DecisionTree:
         '''
         Helper function for tree_visualization.
         Only effective with very shallow trees.
-        You do not need to modify this.
         '''
         temp = []
         output = []
@@ -335,7 +328,6 @@ class DecisionTree:
     def loss_plot_vec(self, data):
         '''
         Helper function to visualize the loss when the tree expands.
-        You do not need to modify this.
         '''
         self._loss_plot_recurs(self.root, data, 0)
         loss_vec = []
@@ -355,7 +347,6 @@ class DecisionTree:
     def _loss_plot_recurs(self, node, rows, prev_num_correct):
         '''
         Helper function to visualize the loss when the tree expands.
-        You do not need to modify this.
         '''
         labels = [row[0] for row in rows]
         curr_num_correct = labels.count(node.label) - prev_num_correct
