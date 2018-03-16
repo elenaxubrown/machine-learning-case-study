@@ -66,7 +66,6 @@ class NaiveBayes(object):
         @return:
             a numpy array of predictions
         """
-        #TODO
         max_store = [0.0] * self.n_classes
         max_index = [0] * len(inputs)
         for i in range(len(inputs)):
@@ -92,7 +91,6 @@ class NaiveBayes(object):
         @return:
             a float number indicating accuracy (between 0 and 1)
         """
-        #TODO
         count = 0.0
         pre = self.predict(data.inputs)
         for i in range(len(data.labels)):
