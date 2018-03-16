@@ -16,7 +16,7 @@ def init_centroids(k, inputs):
     :param inputs: a 2D Python list, each row of which is one input
     :return: a Numpy array of k cluster centroids, one per row
     """
-    # TODO
+
     k_samples = random.sample(inputs, k)
     center = np.array(k_samples)
     return center
@@ -33,7 +33,7 @@ def assign_step(inputs, centroids):
     :param centroids: a Numpy array of k current centroids
     :return: a Python list of centroid indices, one for each row of the inputs
     """
-    # TODO
+
     indice = [0.0] * len(inputs)
     for i in range(len(inputs)):
         m = float('inf')
@@ -56,7 +56,7 @@ def update_step(inputs, indices, k):
     :param k: number of cluster centroids, an int
     :return: a Numpy array of k cluster centroids, one per row
     """
-    # TODO
+
     inputs = np.array(inputs)
     indices = np.array(indices)
     #print(indices)
@@ -79,7 +79,7 @@ def kmeans(inputs, k, max_iter, tol):
     :param tol: relative tolerance with regards to inertia to declare convergence, a float number
     :return: a Numpy array of k cluster centroids, one per row
     """
-    # TODO
+
     cnt = 0.0
     centroids = init_centroids(k,inputs)
     indices = assign_step(inputs, centroids)
