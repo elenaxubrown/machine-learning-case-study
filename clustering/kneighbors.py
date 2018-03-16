@@ -15,7 +15,7 @@ def euclidean_distance(input1, input2):
     :param input2: input data point 2, a Python list
     :return: euclidean distance between input1 and input2, a float number
     """
-    # TODO
+
     #dist = np.linalg.norm(input1-input2)
     input1 = np.array(input1)
     input2 = np.array(input2)
@@ -34,7 +34,7 @@ def get_neighbors_indices(training_inputs, test_instance, k):
     :param k: number of neighbors used, an int
     :return: a Python list of indices of k closest neighbors from the training set for a given test instance
     """
-    # TODO
+
     #indice = [[]] * len(test_instance)
     #for i in range(len(test_instance)):
      #   dist = [] * len(training_inputs)
@@ -59,7 +59,7 @@ def get_response(training_labels, neighbor_indices):
     :param neighbor_indices: a Python list of indices of k closest neighbors from the training data
     :return: the class/label with the highest vote, an int
     """
-    # TODO
+
     #neighbor_indices = np.array(neighbor_indices)
     #freq = [] * len(neighbor_indices)
     #for i in range(len(neighbor_indices)):
