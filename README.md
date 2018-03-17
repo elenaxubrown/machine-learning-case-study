@@ -1,6 +1,4 @@
-# Project Title
-
-Machine learning case study
+# Machine Learning Case Study
 
 ## Introduction
 
