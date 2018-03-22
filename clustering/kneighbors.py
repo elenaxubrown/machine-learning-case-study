@@ -40,7 +40,6 @@ def get_response(training_labels, neighbor_indices):
 
     :param training_labels: labels of training data, a Python list
     :param neighbor_indices: a Python list of indices of k closest neighbors from the training data
-    :return: the class/label with the highest vote, an int
     """
 
     vote = {}
