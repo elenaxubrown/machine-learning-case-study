@@ -6,7 +6,6 @@ import math
 
 def train_error(dataset):
     '''
-        TODO:
         Calculate the train error of the subdataset and return it.
         For a dataset with two classes:
         C(p) = min{p, 1-p}
