@@ -14,16 +14,11 @@ def init_centroids(k, inputs):
 
     :param k: number of cluster centroids, an int
     :param inputs: a 2D Python list, each row of which is one input
-    :return: a Numpy array of k cluster centroids, one per row
     """
 
     k_samples = random.sample(inputs, k)
     center = np.array(k_samples)
     return center
-    #inputs = np.array(inputs)
-    #cen = inputs[np.random.choice(inputs.shape[0],k, replace =False),:]
-    #for i in range(len(inputs)):
-     #   store[i] = np.random.choice(inputs[i,:])
 
 def assign_step(inputs, centroids):
     """
@@ -31,7 +26,6 @@ def assign_step(inputs, centroids):
 
     :param inputs: inputs of data, a 2D Python list
     :param centroids: a Numpy array of k current centroids
-    :return: a Python list of centroid indices, one for each row of the inputs
     """
 
     indice = [0.0] * len(inputs)
@@ -41,11 +35,9 @@ def assign_step(inputs, centroids):
         for k in range(len(centroids)):
             if np.linalg.norm(inputs[i]-centroids[k]) < m:
                 m = np.linalg.norm(inputs[i]-centroids[k])
-                #print(m)
                 cen_ls.append(k)
                 n = max(cen_ls)
         indice[i] = copy.deepcopy(n)
-    #print(indice)
     return indice
 def update_step(inputs, indices, k):
     """
@@ -54,16 +46,13 @@ def update_step(inputs, indices, k):
     :param inputs: inputs of data, a 2D Python list
     :param indices: a Python list of centroid indices, one for each row of the inputs
     :param k: number of cluster centroids, an int
-    :return: a Numpy array of k cluster centroids, one per row
     """
 
     inputs = np.array(inputs)
     indices = np.array(indices)
-    #print(indices)
     cen = list(set(indices))
     store = [[]] * k
     for k in range(k):
-        #print(cen[k])
         store[k] = np.mean(inputs[indices==cen[k]],axis=0)
     return np.array(store)
 def kmeans(inputs, k, max_iter, tol):
@@ -77,14 +66,12 @@ def kmeans(inputs, k, max_iter, tol):
     :param k: number of cluster centroids, an int
     :param max_iter: the maximum number of times the algorithm can iterate trying to optimize the centroid values, an int
     :param tol: relative tolerance with regards to inertia to declare convergence, a float number
-    :return: a Numpy array of k cluster centroids, one per row
     """
 
     cnt = 0.0
     centroids = init_centroids(k,inputs)
     indices = assign_step(inputs, centroids)
     diff = 1
-    #for i in range(max_iter):
     while cnt < max_iter or diff > tol:
         cnt += 1.0
         oldmu = update_step(inputs, indices, k)
