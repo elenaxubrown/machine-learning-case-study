@@ -186,9 +186,6 @@ class DecisionTree:
             2. There are no more indices to split on.
             3. All the instances in this dataset belong to the same class
             4. The depth of the nodex exceede the maximum depth.
-        Return:
-            - A boolean, True indicating the current node should be a leaf.
-            - A label, indicating the label of the leaf (-1 if False)
         '''
         countone = 0
         countzero = 0
@@ -222,12 +219,6 @@ class DecisionTree:
     def _split_recurs(self, node, rows, indices):
         '''
         Recursively split the node based on the rows and indices given.
-        Nothing needs to be returned.
-        First use _is_terminal() to check if the node needs to be splitted.
-        Then select the column that has the maximum infomation gain to split on.
-        Also store the label predicted for this node.
-        Then split the data based on whether satisfying the selected column.
-        The node should not store data, but the data is recursively passed to the children.
         '''
         a,b = self._is_terminal(node,rows,indices)
         if a == True:
@@ -280,7 +271,7 @@ class DecisionTree:
 
     def _calc_gain(self, data, split_index, gain_function):
         '''
-        Calculate the gain of the proposed splitting and return it.
+        Calculate the gain of the proposed splitting.
         Gain = C(P[y=1]) - (P[x_i=True] * C(P[y=1|x_i=True]) + P[x_i=False]C(P[y=1|x_i=False)])
         Here the C(p) is the gain_function. For example, if C(p) = min(p, 1-p), this would be
         considering training error gain. Other alternatives are entropy and gini functions.
